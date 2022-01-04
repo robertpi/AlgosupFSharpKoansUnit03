@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <Name>FSharpKoans</Name>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="KoansExercise.fs" />
+    <Compile Include="PathToEnlightenment.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FSharpKoans.Core\FSharpKoans.Core.fsproj" />
+  </ItemGroup>
+</Project>
