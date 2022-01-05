@@ -344,10 +344,10 @@ module KoansExercise =
         let op2 = !! 11. <-> !! 4.
         let op3 = !! 16 </> !! 4.
         let op4 = !! 4. <*> !! 5.
-        let op5 = (!! 4. <*> !! 5.) </> !! 2
-        let op6 = !! 4. <*> (!! 5. </> !! 2)
-        let op7 = !! 8. </> (!! 4. </> !! 2)
-        let op8 = (!! 8. </> !! 4.) </> !! 2
+        let op5 = (!! 4. <*> !! 5.) </> !! 2.
+        let op6 = !! 4. <*> (!! 5. </> !! 2.)
+        let op7 = !! 8. </> (!! 4. </> !! 2.)
+        let op8 = (!! 8. </> !! 4.) </> !! 2.
 
         AssertEquality 10. (eval op1)
         AssertEquality 7. (eval op2)
