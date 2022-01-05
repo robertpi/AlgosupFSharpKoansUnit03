@@ -56,7 +56,6 @@ module KoansExercise =
         let y = 20.0
         let typeOfY = y.GetType()
 
-        //you don't need to modify these
         AssertEquality typeOfX typeof<FILL_ME_IN>
         AssertEquality typeOfY typeof<FILL_ME_IN>
 
