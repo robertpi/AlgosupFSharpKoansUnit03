@@ -24,242 +24,6 @@ open FSharpKoans.Core
 [<Koan(Sort = 1)>]
 module KoansExercise =
 
-    [<Koan>]
-    let LetInfersTheTypesOfValuesWherePossible() =
-        let x = 50
-        let typeOfX = x.GetType()
-
-        let y = "a string"
-        let typeOfY = y.GetType()
-
-        AssertEquality typeOfX typeof<FILL_ME_IN>
-        AssertEquality typeOfY typeof<FILL_ME_IN>
-
-    [<Koan>]
-    let YouCanMakeTypesExplicit() =
-        // the only difference from the previous test is the type annotations
-        // which can sometimes be useful
-        let (x:int) = 42
-        let typeOfX = x.GetType()
-
-        let y:string = "forty two"
-        let typeOfY = y.GetType()
-
-        AssertEquality typeOfX typeof<FILL_ME_IN>
-        AssertEquality typeOfY typeof<FILL_ME_IN>
-
-    [<Koan>]
-    let FloatsAndInts() =
-        let x = 20
-        let typeOfX = x.GetType()
-
-        let y = 20.0
-        let typeOfY = y.GetType()
-
-        AssertEquality typeOfX typeof<FILL_ME_IN>
-        AssertEquality typeOfY typeof<FILL_ME_IN>
-
-    type MyTypeAlias = FILL_ME_IN
-
-    [<Koan>]
-    let TypeAliasInAction() =
-        let t = typeof<MyTypeAlias>
-
-        //you don't need to modify these
-        AssertEquality t typeof<obj>
-
-    [<Koan>]
-    let CreatingTuples() =
-        let actualValue = (__, 2)
-
-        AssertEquality ("one", 2) actualValue
-
-    [<Koan>]
-    let CreatingTuplesMoreTuples() =
-        let actualValue = (__, 2, __, __)
-
-        AssertEquality ("one", 2, 3., 4) actualValue
-
-    [<Koan>]
-    let AccessingTupleElements() =
-        let items = ("apple", "dog")
-
-        // fst and snd are definited in the F# standard library, can you guess what they mean?
-
-        let fruit = fst items
-        let animal = snd items
-
-        AssertEquality fruit __
-        AssertEquality animal __
-
-    [<Koan>]
-    let AccessingTupleElementsWithPatternMatching() =
-
-        let items = ("apple", "dog", "Mustang")
-
-        let fruit, animal, car = items
-
-        AssertEquality fruit __
-        AssertEquality animal __
-        AssertEquality car __
-
-
-    [<Koan>]
-    let ReturningMultipleValuesFromAFunction() =
-        let squareAndCube x =
-            (x ** 2.0, x ** 3.0)
-
-        let squared, cubed = squareAndCube 3.0
-
-
-        AssertEquality squared __
-        AssertEquality cubed __
-
-    [<Koan>]
-    let SwappingTuples() =
-        let swap tuple = __
-
-        AssertEquality ('b', 'a') (swap ('a', 'b'))
-        AssertEquality (2, 1) (swap (1, 2))
-        AssertEquality (2., 1.) (swap (1., 2.))
-        AssertEquality ("two", "one") (swap ("one", "two"))
-
-    [<Koan>]
-    let PrettyPrintingTuples() =
-        let input = (__, __, __)
-
-        let actualValue = __
-
-        AssertEquality "(6, seven, 8)" actualValue
-
-    type Person =
-        { FirstName: string;
-          LastName: string; }
-
-    [<Koan>]
-    let AccessingMembers() =
-        let input =
-            { FirstName = "Robert";
-              LastName = "Pickering" }
-
-        let actualValue1 = __
-        let actualValue2 = __
-
-        AssertEquality "Pickering" actualValue1
-        AssertEquality "Robert" actualValue2
-
-    [<Koan>]
-    let UpdatingRecords() =
-        let input =
-            { FirstName = "Robert";
-              LastName = "Pickering" }
-
-        let actualValue1 = __
-        let actualValue2 = __
-        let actualValue3 = __
-
-        AssertEquality { FirstName = "Fred"; LastName = "Pickering" } actualValue1
-        AssertEquality { FirstName = "Fran"; LastName = "Pickering" } actualValue2
-        AssertEquality { FirstName = "Robert"; LastName = "Zimmerman" } actualValue3
-
-    [<Koan>]
-    let SomeSimplePatternMatching() =
-
-        let numberConverter x =
-            match x with
-            // add other cases here!
-            | _ -> "unintresting"
-
-        AssertEquality "the first number" (numberConverter 1)
-        AssertEquality "lucky" (numberConverter 7)
-        AssertEquality "baker's dozen" (numberConverter 13)
-
-    type Condiment =
-        | Mustard
-        | Ketchup
-        | Relish
-        | Vinegar
-
-    [<Koan>]
-    let DiscriminatedUnionsCaptureASetOfOptions() =
-
-        let toColor condiment =
-            match condiment with
-            | Mustard -> "yellow"
-            | Ketchup -> "red"
-            | Relish -> "green"
-            | Vinegar -> "brownish?"
-
-        let choice = Mustard
-
-        AssertEquality (toColor choice) __
-
-    [<Koan>]
-    let OptionTypesMightContainAValue() =
-        let someValue = Some 10
-
-        AssertEquality someValue.IsSome __
-        AssertEquality someValue.IsNone __
-        AssertEquality someValue.Value __
-
-    [<Koan>]
-    let OrTheyMightNot() =
-        let noValue = None
-
-        AssertEquality noValue.IsSome __
-        AssertEquality noValue.IsNone __
-        AssertThrows<FILL_IN_THE_EXCEPTION> (fun () -> noValue.Value)
-
-    type Game =
-        { Name: string
-          Platform: string
-          Score: int option }
-
-    [<Koan>]
-    let UsingOptionTypesWithPatternMatching() =
-        let chronoTrigger = { Name = "Chrono Trigger"; Platform = "SNES"; Score = Some 5 }
-        let halo = { Name = "Halo"; Platform = "Xbox"; Score = None }
-
-        let translate score =
-            match score with
-            | 5 -> "Great"
-            | 4 -> "Good"
-            | 3 -> "Decent"
-            | 2 -> "Bad"
-            | 1 -> "Awful"
-            | _ -> "Unknown"
-
-        let getScore game =
-            match game.Score with
-            | Some score -> translate score
-            | None -> "Unknown"
-
-        AssertEquality (getScore chronoTrigger) __
-        AssertEquality (getScore halo) __
-
-    [<Koan>]
-    let FindingJustOneOrZeroItem() =
-        let names = [ "Alice"; "Bob"; "Eve"; ]
-
-        // tryFind returns an option so you can handle 0 rows returned
-        let eve =
-            names
-            |> List.tryFind (fun name -> name = "Eve" )
-        let zelda =
-            names
-            |> List.tryFind (fun name -> name = "Zelda" )
-
-        AssertEquality eve __
-        AssertEquality zelda __
-
-    [<Koan>]
-    let ComputingFactorial() =
-        // for an explaination of factorial see https://en.wikipedia.org/wiki/Factorial
-        let rec fac n = __
-
-        AssertEquality 6 (fac 3)
-        AssertEquality 120 (fac 5)
-        AssertEquality 362880 (fac 9)
 
     type BinaryTree<'a> =
     | Node of BinaryTree<'a> * BinaryTree<'a>
@@ -269,7 +33,8 @@ module KoansExercise =
     let CountTheNodesOnABinaryTree() =
         let rec countNodes t =
             match t with
-            | _ -> __
+            | Node(left, right) -> countNodes(left) + countNodes(right) + 1
+            | _ -> 1
 
         let tree1 =
             Node(
@@ -294,7 +59,8 @@ module KoansExercise =
     let SumTheLeavesOnABinaryTree() =
         let rec sumNodes t =
             match t with
-            | _ -> __
+            | Node(left, right) -> sumNodes(left) + sumNodes(right)
+            | Leaf value -> value
 
         let tree1 =
             Node(
@@ -337,7 +103,12 @@ module KoansExercise =
     let EvaluateTreeOperations() =
         let rec eval aTree =
             match aTree with
-            | _ -> __
+            | OperationNode(x, Addition, y) -> eval x + eval y
+            | OperationNode(x, Subtraction, y) -> eval x - eval y
+            | OperationNode(x, Multiplication, y) -> eval x * eval y
+            | OperationNode(x, Division, y) -> eval x / eval y
+            | Value(v) -> v
+
 
         let op1 = !! 4. <+> !! 6.
         let op2 = !! 11. <-> !! 4.
@@ -371,8 +142,16 @@ module KoansExercise =
         //  _       _
         // |_|   | | |
         //   |   | |_|
+        let top = [" _ ";"   ";" _ ";" _ ";"   ";" _ ";" _ ";" _ ";" _ ";" _ "]
+        let mid = ["| |";"  |";" _|";" _|";"|_|";"|_ ";"|_ ";"  |";"|_|";"|_|"]
+        let bot = ["|_|";"  |";"|_ ";" _|";"  |";" _|";"|_|";"  |";"|_|";"  |"]
 
-        let convert n = __
+        let convert n =
+            let rec digittostring d (l:list<string>) =
+                match d%10 with
+                | x when d < 10 -> l.[x]
+                | x -> (digittostring (d / 10) l) + " " + l.[x]
+            digittostring n top + nl + digittostring n mid + nl + digittostring n bot + nl 
 
         let example2 =
             " _ " + nl +
@@ -394,6 +173,7 @@ module KoansExercise =
             "  | |_|  _| |_ " + nl +
             "  | |_|  _| |_|" + nl
 
+        //printf "%s" (convert 910)
 
         AssertEquality example2 (convert 2)
         AssertEquality example910 (convert 910)
