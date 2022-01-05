@@ -56,7 +56,6 @@ module KoansExercise =
         let y = 20.0
         let typeOfY = y.GetType()
 
-        //you don't need to modify these
         AssertEquality typeOfX typeof<FILL_ME_IN>
         AssertEquality typeOfY typeof<FILL_ME_IN>
 
@@ -342,12 +341,12 @@ module KoansExercise =
 
         let op1 = !! 4. <+> !! 6.
         let op2 = !! 11. <-> !! 4.
-        let op3 = !! 16 </> !! 4.
+        let op3 = !! 16. </> !! 4.
         let op4 = !! 4. <*> !! 5.
-        let op5 = (!! 4. <*> !! 5.) </> !! 2
-        let op6 = !! 4. <*> (!! 5. </> !! 2)
-        let op7 = !! 8. </> (!! 4. </> !! 2)
-        let op8 = (!! 8. </> !! 4.) </> !! 2
+        let op5 = (!! 4. <*> !! 5.) </> !! 2.
+        let op6 = !! 4. <*> (!! 5. </> !! 2.)
+        let op7 = !! 8. </> (!! 4. </> !! 2.)
+        let op8 = (!! 8. </> !! 4.) </> !! 2.
 
         AssertEquality 10. (eval op1)
         AssertEquality 7. (eval op2)
