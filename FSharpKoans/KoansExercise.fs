@@ -410,16 +410,16 @@ module KoansExercise =
         // - the largest group of anagrams
         let words = File.ReadAllLines(Path.Combine(__SOURCE_DIRECTORY__, "wordlist.txt")) |> List.ofArray
 
-        let caseSenativeAnagramsCount = __
-        let caseSenativeLargestGroup = __
-        let caseInsenativeAnagramsCount = __
-        let caseInsenativeLargestGroup = __
+        let caseSensitiveAnagramsCount = __
+        let caseSensitiveLargestGroup = __
+        let caseInSensitiveAnagramsCount = __
+        let caseInSensitiveLargestGroup = __
 
-        AssertEquality 20683 caseSenativeAnagramsCount
+        AssertEquality 20683 caseSensitiveAnagramsCount
         AssertEquality
             ["alerts"; "alters"; "artels"; "estral"; "laster"; "rastle"; "ratels"; "salter"; "slater"; "staler"; "stelar"; "talers"; "tarsel"]
-            caseSenativeLargestGroup
-        AssertEquality 30404 caseInsenativeAnagramsCount
+            caseSensitiveLargestGroup
+        AssertEquality 30404 caseInSensitiveAnagramsCount
         AssertEquality
             ["alerts"; "alters"; "artels"; "estral"; "laster"; "rastle"; "ratels"; "salter"; "slater"; "staler"; "stelar"; "talers"; "tarsel"]
-            caseInsenativeLargestGroup
+            caseInSensitiveLargestGroup
